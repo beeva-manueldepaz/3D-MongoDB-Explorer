@@ -1,15 +1,44 @@
 var express = require('express');
+var mongodb = require('mongodb');
 var app = express();
 
-app.get('/', function (req, res) {
-    res.send('Hello World!');
+var MONGODB_URI = 'mongodb://127.0.0.1:27017/salamandra';
+var db;
+
+// Initialize connection once
+mongodb.MongoClient.connect(MONGODB_URI, function(err, database) {
+
+    if (err) { console.log('no mongoDB'); }
+
+    else {
+
+        db = database;
+        var server = app.listen(3001, function () {
+
+            var host = server.address().address;
+            var port = server.address().port;
+
+            console.log('Example app listening at http://%s:%s', host, port);
+        });
+    }
 });
 
-var server = app.listen(3000, function () {
+app.get('/collection/:id', function(req, res) {
 
-    var host = server.address().address;
-    var port = server.address().port;
+    var id = req.params.id;
 
-    console.log('Example app listening at http://%s:%s', host, port);
+    db.collection(id).find({},{limit:10}, function(err, docs) {
+        docs.each(function(err, doc) {
+            if(doc) {
+                res.write(JSON.stringify(doc) + "\n");
+            }
+            else {
+                res.end();
+            }
+        });
+    });
+});
 
+app.get('/collections', function (req, res) {
+    res.send('Hello World!');
 });
