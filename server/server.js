@@ -60,14 +60,13 @@ app.get('/', function (req, res) {
 // Get Collections from 1 DB
 app.get('/:db', function(req, res) {
 
-    var id = req.params.db;
-    var secondDb = db.db(id);
+    var idDb = req.params.db;
+    var secondDb = db.db(idDb);
 
     secondDb.collections(function(err, collections) {
 
         if (err) { res.status(500).send([]); }
         else {
-            console.log(collections);
 
             var listCols = [];
             _.each(collections,function(item) {
@@ -80,3 +79,26 @@ app.get('/:db', function(req, res) {
     });
 });
 
+// Get Collections from 1 DB
+app.get('/:db/:col', function(req, res) {
+
+    var idDb = req.params.db;
+    var idCol = req.params.col;
+    var secondDb = db.db(idDb);
+
+    secondDb.collection(idCol).find({},{limit:10},function(err, data) {
+
+        if (err) { res.status(500).send([]); }
+        else {
+
+            var reply = []
+            data.forEach(function(doc) {
+                    reply.push(doc);
+                },
+                function(err,doc) {
+                    res.status(200).send(reply);
+                }
+            );
+        }
+    });
+});
