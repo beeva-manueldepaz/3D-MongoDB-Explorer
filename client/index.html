@@ -1,60 +1,28 @@
+
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Web para visualizar estadísticas del taller</title>
+<html lang="en">
+	<head>
+		<title>three.js webgl - draggable cubes</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<style>
+			body {
+				font-family: Monospace;
+				background-color: #f0f0f0;
+				margin: 0px;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+		<script src="../javascript/three.min.js"></script>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</head>
-<body ng-app="myApp">
-<div class="container-fluid" ng-controller="myChartCtrl">
-    <div class="row">
+		<script src="../javascript/TrackballControls.js"></script>
 
-        <div class="col-md-8 col-md-offset-4">
-            <h1 id="title">Estadísticas del Taller</h1>
-        </div>
+		<script src="../javascript/stats.min.js"></script>
 
-        <div class="col-md-8 col-md-offset-2">
-            <div id="iframe1" class="well">
-                <nvd3-line-chart
-                    data="data.bar"
-                    id="barID"
-                    showXAxis="true"
-                    showYAxis="true"
-                    tooltips="true"
-                    interactive="true">
-                </nvd3-line-chart>
-            </div>
-        </div>
+		<script src="../javascript/index.js"></script>
 
-        <div class="col-md-8 col-md-offset-3">
-            <p>Este aplicativo web se suministra desde otro servidor... CDN, Cloudfront, http-server(node), apache,...</p>
-        </div>
-    </div>
-</div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-
-<script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/d3/d3.js"></script>
-<script src="bower_components/nvd3/nv.d3.js"></script>
-<script src="bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js"></script>
-<link rel="stylesheet" href="bower_components/nvd3/nv.d3.css"/>
-
-<script src="app.js"></script>
-
-</body>
+	</body>
 </html>
-
