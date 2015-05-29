@@ -25,6 +25,7 @@
   "homepage": "https://github.com/beeva-manueldepaz/3D-MongoDB-Explorer",
   "dependencies": {
     "express": "^4.12.4",
+    "lodash": "^3.9.3",
     "mongodb": "^2.0.33"
   }
 }
