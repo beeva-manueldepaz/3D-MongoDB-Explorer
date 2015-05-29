@@ -19,7 +19,6 @@ var db = new Db('test', new Server('localhost', 27017));
 
 // Establish connection to db
 db.open(function(err, db) {
-
     if (err) { console.log('no mongoDB'); }
 
     else {
@@ -35,6 +34,7 @@ db.open(function(err, db) {
     }
 });
 
+// Get All DBs from a DB
 app.get('/', function (req, res) {
 
     // Use the admin database for the operation
@@ -57,7 +57,7 @@ app.get('/', function (req, res) {
     });
 });
 
-
+// Get Collections from 1 DB
 app.get('/:db', function(req, res) {
 
     var id = req.params.db;
@@ -78,19 +78,5 @@ app.get('/:db', function(req, res) {
         }
 
     });
-
-    /*
-    db.collection(id).find({},{limit:10}, function(err, docs) {
-        docs.each(function(err, doc) {
-
-            if(doc) {
-                res.write(JSON.stringify(doc) + "\n");
-            }
-            else {
-                res.end();
-            }
-        });
-    });
-    */
 });
 
