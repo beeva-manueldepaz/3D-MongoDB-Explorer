@@ -5,23 +5,24 @@ var _       = require('lodash');
 var app = express();
 
 var Db = require('mongodb').Db,
-    MongoClient = require('mongodb').MongoClient,
-    Server = require('mongodb').Server,
-    ObjectID = require('mongodb').ObjectID,
-    Binary = require('mongodb').Binary,
-    GridStore = require('mongodb').GridStore,
-    Grid = require('mongodb').Grid,
-    Code = require('mongodb').Code;
-    //BSON = require('mongodb').pure().BSON;
+        MongoClient = require('mongodb').MongoClient,
+        Server = require('mongodb').Server,
+        ObjectID = require('mongodb').ObjectID,
+        Binary = require('mongodb').Binary,
+        GridStore = require('mongodb').GridStore,
+        Grid = require('mongodb').Grid,
+        Code = require('mongodb').Code;
+//BSON = require('mongodb').pure().BSON;
 
-app.use(express.static(__dirname+'/../client/'));
+app.use(express.static(__dirname));
 
 // Rutas
 app.get("/", function(req, res){
-    res.sendFile(__dirname + '/../client/index.html');
+    res.sendFile(__dirname + '/index.html');
 });
 
-var db = new Db('test', new Server('localhost', 27017));
+
+var db = new Db('salamandra', new Server('localhost', 27017));
 
 // Establish connection to db
 db.open(function(err, db) {
@@ -99,11 +100,11 @@ app.get('/:db/:col', function(req, res) {
 
             var reply = []
             data.forEach(function(doc) {
-                    reply.push(doc);
-                },
-                function(err,doc) {
-                    res.status(200).send(reply);
-                }
+                        reply.push(doc);
+                    },
+                    function(err,doc) {
+                        res.status(200).send(reply);
+                    }
             );
         }
     });

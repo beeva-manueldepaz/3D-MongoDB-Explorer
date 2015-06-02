@@ -1,0 +1,31 @@
+{
+    "name": "3D-MongoDB-Explorer",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/beeva-manueldepaz/3D-MongoDB-Explorer"
+    },
+    "keywords": [
+        "three.js",
+        "Leap",
+        "Motion",
+        "MongoDB"
+    ],
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/beeva-manueldepaz/3D-MongoDB-Explorer/issues"
+    },
+    "homepage": "https://github.com/beeva-manueldepaz/3D-MongoDB-Explorer",
+    "dependencies": {
+        "express": "^4.12.4",
+        "lodash": "^3.9.3",
+        "mongodb": "^2.0.33"
+    }
+}
